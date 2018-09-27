@@ -13,7 +13,7 @@ D2 <- subset(D1, schoolyear == 20112012)
 
 #Histograms
 ```{r}
-hist()
+#hist()
 
 hist(D2$frl_percent, breaks = 100)
 
@@ -56,11 +56,27 @@ pairs(D4)
 
 1. Create a simulated data set containing 100 students, each with a score from 1-100 representing performance in an educational game. The scores should tend to cluster around 75. Also, each student should be given a classification that reflects one of four interest groups: sport, music, nature, literature.
 
+Score <- rnorm(100, mean=75, sd =7)
+Score <- ifelse(Score > 100, 100, Score)
+Score <- as.integer(Score)
+DF <- data.frame("score" = Score, "classfication" = c("sport", "music", "nature", "literature"))
+DF
+
+
 2. Using base R commands, draw a histogram of the scores. Change the breaks in your histogram until you think they best represent your data.
+
+hist(DF$score, breaks = 5)
+
 
 3. Create a new variable that groups the scores according to the breaks in your histogram.
 
+library(dplyr)
+for (i inDF$score), 
+
+
+
 4. Now using the colorbrewer package (RColorBrewer; http://colorbrewer2.org/#type=sequential&scheme=BuGn&n=3) design a pallette and assign it to the groups in your data on the histogram.
+
 
 5. Create a boxplot that visualizes the scores for each interest group and color each interest group a different color.
 
